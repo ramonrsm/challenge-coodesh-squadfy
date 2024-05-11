@@ -1,0 +1,43 @@
+{
+  "name": "challenge-coodesh-squadfy",
+  "version": "1.0.0",
+  "description": "Nesse desafio trabalharemos no desenvolvimento de uma REST API para utilizar os dados do projeto Open Food Facts, que é um banco de dados aberto com informação nutricional de diversos produtos alimentícios.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "lint-staged",
+    "prepare": "husky",
+    "prebuild": "rimraf ./dist & rimraf --glob ./packages/*/dist",
+    "build": "tsc --build --clean && tsc --build --verbose && tsc-alias"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.11",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.9",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.8.0"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npx eslint --fix --max-warnings 0",
+      "npx prettier --write --ignore-unknown --stdin ./packages"
+    ]
+  },
+  "dependencies": {
+    "rimraf": "^5.0.6"
+  }
+}

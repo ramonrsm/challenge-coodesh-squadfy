@@ -1,0 +1,9 @@
+node_modules
+package-lock.json
+dist
+!packages/**/.env.exemple
+.env
+.env.development
+tsconfig.tsbuildinfo
+tsconfig.node.tsbuildinfo
+coverage
