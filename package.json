@@ -13,7 +13,9 @@
     "test": "lint-staged",
     "prepare": "husky",
     "prebuild": "rimraf ./dist & rimraf --glob ./packages/*/dist",
-    "build": "tsc --build --clean && tsc --build --verbose && tsc-alias"
+    "build": "tsc --build --clean && tsc --build --verbose && tsc-alias",
+    "api": "npm run dev --workspace @challenge-coodesh-squadfy/api --if-present",
+    "cron": "npm run dev --workspace @challenge-coodesh-squadfy/cron --if-present"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +30,7 @@
     "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.9",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.8.0"
   },
