@@ -2,9 +2,7 @@ import { environmentVariables } from "../../../../utils/environment-variables";
 import { type Knex } from "knex";
 import path from "node:path";
 
-environmentVariables.load({
-  path: path.resolve(process.cwd(), "..", "..", "..", "..", "..", ".env"),
-});
+environmentVariables.load();
 
 export const knexConfig: Knex.Config = {
   client: process.env.DATABASE_CLIENT,

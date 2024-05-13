@@ -1,4 +1,4 @@
-import { rootRoute } from "@use-cases/health-use-case";
+import { healthRoute } from "src/routes/health";
 import { type HttpRoute } from "./http-route";
 import { type HttpServer } from "./http-server";
 
@@ -29,6 +29,6 @@ export class HttpRouter<Application> {
 
   registerRoutes() {
     // root
-    this.verifyRoute(rootRoute);
+    this.verifyRoute(healthRoute);
   }
 }

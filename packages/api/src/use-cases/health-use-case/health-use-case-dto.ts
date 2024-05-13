@@ -1,4 +1,4 @@
-import { type HealthRouteOutputData, type HealthUseCaseOutputData } from "./health-types";
+import { type HealthRouteOutputData, type HealthUseCaseOutputData } from "./health-use-case-types";
 
 export class HealthUseCaseDto {
   private constructor() {}
@@ -15,10 +15,7 @@ export class HealthUseCaseDto {
       version: apiDetails.version,
       uptime: `${uptime.hours}h ${uptime.minutes}m ${uptime.seconds}s`,
       memoryUsage: `rss: ${memoryUsage.rss} MB, heapTotal: ${memoryUsage.heapTotal} MB, heapUsed: ${memoryUsage.heapUsed} MB`,
-      databaseStatus: {
-        read: databaseStatus.read ? "OK" : "FAIL",
-        write: databaseStatus.write ? "OK" : "FAIL",
-      },
+      databaseStatus: databaseStatus ? "connected" : "disconnected",
       lastCRONExecution,
     };
 

@@ -14,7 +14,9 @@ services:
     networks:
       - dev-network
     volumes:
-      - ../../docker/volumes/postgres:/var/lib/postgresql/data
+      - challenge-coodesh-squadfy-postgres:/var/lib/postgresql/data
 networks:
   dev-network:
     driver: bridge
+volumes:
+  challenge-coodesh-squadfy-postgres:
