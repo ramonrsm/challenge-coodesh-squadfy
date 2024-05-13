@@ -1,4 +1,4 @@
-import { environmentVariables } from "@utils/environment-variables";
+import { knexConfig } from "./providers/knex/knex-config";
 import { KnexDatabaseProvider } from "./providers/knex/knex-database-provider";
 
 export interface IDatabaseProvider {
@@ -7,9 +7,4 @@ export interface IDatabaseProvider {
   isConnected(): boolean;
 }
 
-environmentVariables.load();
-
-export const database = new KnexDatabaseProvider({
-  client: process.env.DATABASE_CLIENT,
-  connection: process.env.DATABASE_URL,
-});
+export const database = new KnexDatabaseProvider(knexConfig);

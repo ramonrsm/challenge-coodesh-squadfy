@@ -59,7 +59,7 @@ export class EnvironmentVariablesDotEnvProvider {
       throw new Error("Adicione um arquivo '.env' na raiz do projeto. Verifique o arquivo '.env.exemple'");
     }
 
-    this.verifyEnvironments(dotenvResult.parsed);
+    this.verifyEnvironments(dotenvResult.parsed, dotenvConfigOptions.path as string);
 
     const entries = Object.entries(dotenvResult.parsed);
 
@@ -85,14 +85,14 @@ export class EnvironmentVariablesDotEnvProvider {
     return this._env;
   }
 
-  verifyEnvironments(parsedEnvironments: { [name: string]: string } | undefined) {
+  verifyEnvironments(parsedEnvironments: { [name: string]: string } | undefined, envPath: string = ".env") {
     if (!parsedEnvironments) {
       throw new Error("Nenhuma variável de ambiente encontrada.");
     }
 
     const environments = Object.keys(parsedEnvironments);
 
-    const pathEnvExemple = path.resolve(".env.exemple");
+    const pathEnvExemple = path.resolve(envPath ? envPath.concat(".exemple") : envPath);
 
     const envExemple = dotenv.parse(fs.readFileSync(pathEnvExemple));
 

@@ -16,12 +16,6 @@ export class KnexDatabaseProvider implements IDatabaseProvider {
   constructor(private config: Knex.Config) {
     this.connection = null;
   }
-  checkRead(): Promise<boolean> {
-    throw new Error("Method not implemented.");
-  }
-  checkWrite(): Promise<boolean> {
-    throw new Error("Method not implemented.");
-  }
 
   async verifySchema(): Promise<boolean> {
     try {

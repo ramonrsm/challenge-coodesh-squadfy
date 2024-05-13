@@ -6,11 +6,14 @@
   "scripts": {
     "test": "vitest",
     "typescript": "ts-node-dev -r tsconfig-paths/register --quiet --exit-child --ignore-watch node_modules --",
-    "dev": "npm run typescript ./src/index"
+    "dev": "npm run typescript ./src/index",
+    "migrate:make": "knex migrate:make --knexfile src/services/database/providers/knex/knex-config.ts --",
+    "migrate:latest": "knex migrate:latest --knexfile src/services/database/providers/knex/knex-config.ts",
+    "migrate:rollback": "knex migrate:rollback --knexfile src/services/database/providers/knex/knex-config.ts"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",

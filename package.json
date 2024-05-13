@@ -15,11 +15,14 @@
     "prebuild": "rimraf ./dist & rimraf --glob ./packages/*/dist",
     "build": "tsc --build --clean && tsc --build --verbose && tsc-alias",
     "api": "npm run dev --workspace @challenge-coodesh-squadfy/api --if-present",
-    "cron": "npm run dev --workspace @challenge-coodesh-squadfy/cron --if-present"
+    "cron": "npm run dev --workspace @challenge-coodesh-squadfy/cron --if-present",
+    "migrate:make": "npm run migrate:make --workspace @challenge-coodesh-squadfy/api --if-present",
+    "migrate:latest": "npm run migrate:latest --workspace @challenge-coodesh-squadfy/api --if-present",
+    "migrate:rollback": "npm run migrate:rollback --workspace @challenge-coodesh-squadfy/api --if-present"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.12.11",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
