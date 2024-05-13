@@ -6,7 +6,7 @@ import {
   type HttpRouteProps,
 } from "@services/server/http-route";
 
-export class RootRoute<Body = unknown, Params = unknown, Query = unknown> extends HttpRoute<
+export class HealthRoute<Body = unknown, Params = unknown, Query = unknown> extends HttpRoute<
   Body,
   Params,
   Query,
@@ -17,7 +17,7 @@ export class RootRoute<Body = unknown, Params = unknown, Query = unknown> extend
   validation?: HttpRouteValidation<Schema>;
 
   constructor(props: HttpRouteProps<Body, Params, Query, Schema>) {
-    super(RootRoute.path, RootRoute.method, props);
+    super(HealthRoute.path, HealthRoute.method, props);
     this.validation = props.validation;
   }
 }

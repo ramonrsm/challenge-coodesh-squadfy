@@ -8,9 +8,7 @@ type LoadEnvironmentParams = {
   ambient?: NodeJS.ProcessEnv["NODE_ENV"];
 };
 
-export type Env = {
-  NODE_ENV: "development" | "production" | "test";
-  API_HOST: string;
+export type Env = NodeJS.ProcessEnv & {
   API_PORT: number;
 };
 
@@ -26,6 +24,8 @@ export class EnvironmentVariablesDotEnvProvider {
   }
 
   public async load(params?: LoadEnvironmentParams) {
+    if (this._env) return this._env;
+
     const dotenvConfigOptions: DotenvConfigOptions = {};
 
     if (params?.ambient) {

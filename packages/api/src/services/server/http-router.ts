@@ -1,4 +1,4 @@
-import { rootRoute } from "@use-cases/root-use-case";
+import { rootRoute } from "@use-cases/health-use-case";
 import { type HttpRoute } from "./http-route";
 import { type HttpServer } from "./http-server";
 
